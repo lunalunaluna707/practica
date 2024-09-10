@@ -37,9 +37,9 @@
         <td>{{ esclavo.matricula }}</td>
         <td>
             <form action="{{ url_for('eliminar', id=esclavo.id) }}" method="POST">
-            <button id="btneliminar" name="btneliminar" class="btn btn-outline-danger" href="{{ url_for('vista_tabla') }}">Eliminar</button>
+            <button id="btneliminar" name="btneliminar" class="btn btn-danger" href="{{ url_for('vista_tabla') }}">Eliminar</button>
              </form>
-             <a href="{{ url_for('editar', id=esclavo.id) }}" id="btneditar"name="btneditar" class="btn btn-outline-warning"> Editar</a>
+             <a href="{{ url_for('editar', id=esclavo.id) }}" id="btneditar"name="btneditar" class="btn btn-warning"> Editar</a>
         </td>
       </tr>
       {% endfor %}
