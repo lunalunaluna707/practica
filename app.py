@@ -31,7 +31,10 @@ def editarvista():
 
 @app.route("/esclavos/guardar", methods=["POST"])
 def esclavos_Guardar():
-    return f"Matricula: {request.form["matricula"]} Nombre: {request.form["nombre"]}"
+    matricula = request.form['matricula']
+    nombre = request.form['nombre']
+    return f"Matricula: {matricula} Nombre: {nombre}"
+
 
 @app.route('/vista')
 def vista_tabla():
