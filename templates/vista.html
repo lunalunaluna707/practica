@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>VISTA</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    #btneliminar,#btneditar{
+      width: 150px;
+      padding: 10px;
+      margin: 2px;
+    
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+              
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Matricula</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for esclavo in esclavos %}
+      <tr>
+        <td>{{ esclavo.id }}</td>
+        <td>{{ esclavo.nombre }}</td>
+        <td>{{ esclavo.matricula }}</td>
+        <td>
+            <form action="{{ url_for('eliminar', id=esclavo.id) }}" method="POST">
+            <button id="btneliminar" name="btneliminar" class="btn btn-danger" href="{{ url_for('vista_tabla') }}">Eliminar</button>
+             </form>
+             <a href="{{ url_for('editar', id=esclavo.id) }}" id="btneditar"name="btneditar" class="btn btn-warning"> Editar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
